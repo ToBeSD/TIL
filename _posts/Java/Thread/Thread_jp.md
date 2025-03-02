@@ -43,7 +43,7 @@ public class ThreadPoolExample {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         for (int i = 0; i < 5; i++) {
-            executor.execute(() -> System.out.println(Thread.currentThread().getName() + " 실행 중"));
+            executor.execute(() -> System.out.println(Thread.currentThread().getName() + " 実行中"));
         }
 
         executor.shutdown();
@@ -82,11 +82,11 @@ class BankAccount {
 
     public synchronized void withdraw(int amount) {
         if (balance >= amount) {
-            System.out.println(Thread.currentThread().getName() + " 출금: " + amount);
+            System.out.println(Thread.currentThread().getName() + " 出金: " + amount);
             balance -= amount;
-            System.out.println(Thread.currentThread().getName() + " 잔액: " + balance);
+            System.out.println(Thread.currentThread().getName() + " 残高: " + balance);
         } else {
-            System.out.println(Thread.currentThread().getName() + " 출금 실패, 잔액 부족");
+            System.out.println(Thread.currentThread().getName() + " 出金失敗, 残高不足");
         }
     }
 }
@@ -126,11 +126,11 @@ class BankAccount {
 
     public synchronized void withdraw(int amount) {
         if (balance >= amount) {
-            System.out.println(Thread.currentThread().getName() + " 출금: " + amount);
+            System.out.println(Thread.currentThread().getName() + " 出金: " + amount);
             balance -= amount;
-            System.out.println(Thread.currentThread().getName() + " 잔액: " + balance);
+            System.out.println(Thread.currentThread().getName() + " 残高: " + balance);
         } else {
-            System.out.println(Thread.currentThread().getName() + " 출금 실패, 잔액 부족");
+            System.out.println(Thread.currentThread().getName() + " 出金失敗, 残高不足");
         }
     }
 }
@@ -150,11 +150,11 @@ class BankAccount {
     public void withdraw(int amount) {
         synchronized (this) {
             if (balance >= amount) {
-                System.out.println(Thread.currentThread().getName() + " 출금: " + amount);
+                System.out.println(Thread.currentThread().getName() + " 出金: " + amount);
                 balance -= amount;
-                System.out.println(Thread.currentThread().getName() + " 잔액: " + balance);
+                System.out.println(Thread.currentThread().getName() + " 残高: " + balance);
             } else {
-                System.out.println(Thread.currentThread().getName() + " 출금 실패, 잔액 부족");
+                System.out.println(Thread.currentThread().getName() + " 出金失敗, 残高不足");
             }
         }
     }
@@ -179,11 +179,11 @@ class BankAccount {
         lock.lock();
         try {
             if (balance >= amount) {
-                System.out.println(Thread.currentThread().getName() + " 출금: " + amount);
+                System.out.println(Thread.currentThread().getName() + " 出金: " + amount);
                 balance -= amount;
-                System.out.println(Thread.currentThread().getName() + " 잔액: " + balance);
+                System.out.println(Thread.currentThread().getName() + " 残高: " + balance);
             } else {
-                System.out.println(Thread.currentThread().getName() + " 출금 실패, 잔액 부족");
+                System.out.println(Thread.currentThread().getName() + " 出金失敗, 残高不足");
             }
         } finally {
             lock.unlock();
