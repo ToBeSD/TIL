@@ -30,7 +30,7 @@ github_username: ToBeSD
 collections:
   posts:
     output: true
-    permalink: /:path/:title/
+    permalink: /:categories/:title/
 
 # Build settings
 theme: minimal-mistakes-jekyll
